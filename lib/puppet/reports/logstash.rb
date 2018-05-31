@@ -31,7 +31,7 @@ Puppet::Reports.register_report(:logstash) do
     # Push all log lines as a single message
     logs = []
     self.logs.each do |log|
-      logs << log
+      logs << "#{log.level}: #{log.source}: #{log.message}"
     end
 
     event = Hash.new
